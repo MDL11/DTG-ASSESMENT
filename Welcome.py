@@ -12,9 +12,9 @@ def welcome():
     '''
     num = randint(0,9)
     name = (names[num])
-    print("*** Welcome to Boba shop***")
+    print("*** Welcome to Shake shop***")
     print("*** My name is",name,"***")
-    print("***I will be here to help you order your Boba***")
+    print("***I will be here to help you order your Shake***")
 
 
 

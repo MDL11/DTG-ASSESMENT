@@ -6,10 +6,11 @@ from random import randint
 # List of random names
 names = ["Jeff", "Tim", "Sarah" , "Miguel", "Drake", "Hellen", "Eren", "Mona", "Louis", ]
 # List of Boba names
-boba_names = ['Taro','Chocolate','Watermelon','Strawberry','Egg','Caramel','Original taro','Mango',
-                'Rockmelon','Apple','Apricot','Vanilla']
+shake_names = ['Apple','Chocolate','Watermelon','Strawberry','Pear','Caramel','Orange','Mango',
+                'Rockmelon','Banana','Apricot','pineaple']
+
 # List of Boba prices
-boba_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
+shake_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
 
 # Customer details dictionary
 customer_details = {}
@@ -34,9 +35,9 @@ def welcome():
     '''
     num = randint(0,9)
     name = (names[num])
-    print("*** Welcome to Boba stop***")
+    print("*** Welcome to Shake shop***")
     print("*** My name is",name,"***")
-    print("***I will be here to help you order your Boba ***")
+    print("***I will be here to help you order your Shake***")
 
 
 
@@ -115,20 +116,20 @@ def delivery_info():
 
 
 
-# Choose total number of Boba 
-
-
-
-
-
-
-# Boba menu
+# shake menu
 def menu():
-    number_boba = 12
-    for count in range (number_boba):
-         print("{} {} ${:.2f}" .format(count+1, boba_names[count], boba_prices[count]))
+    number_shake = 12
+    for count in range (number_shake):
+         print("{} {} ${:.2f}" .format(count+1, shake_names[count],shake_prices[count]))
 
 
+
+# ask for total number of shakes for order
+num_shakes = 0
+
+num_shakes = int(input("How many shakes do you want to order "))
+
+print(num_shakes)
 
 
 
