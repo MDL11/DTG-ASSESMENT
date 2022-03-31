@@ -116,6 +116,7 @@ def delivery_info():
 
 
 
+
 # shake menu
 def menu():
     number_shake = 12
@@ -124,12 +125,7 @@ def menu():
 
 
 
-# ask for total number of shakes for order
-num_shakes = 0
 
-num_shakes = int(input("How many shakes do you want to order "))
-
-print(num_shakes)
 
 
 
