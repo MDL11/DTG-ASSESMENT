@@ -50,6 +50,7 @@ def welcome():
 # Menu for pickup or delivery
 
 def order_type():
+    del_pick = ""
     print ("Is your order pickup or delivery? ")
     print (" For pickup enter 1 ")
     print (" For delivery enter 2 ")
@@ -59,18 +60,20 @@ def order_type():
             if delivery >= 1 and delivery <= 2:
                 if delivery == 1:
                     print ("Pickup")
+                    del_pick = "pickup"
                     pickup_info()
                     break
-                
                 elif delivery == 2:
                     print ("Delivery")
                     delivery_info()
+                    del_pick = "delivery"
                     break
             else: 
                 print("Number must be 1 or 2 ")
         except ValueError:
             print ("That is not a valid number")
             print("Please enter 1 or 2)")
+    return del_pick
                 
 
 
@@ -159,7 +162,23 @@ def order_shake():
         print("{} ${:.2f}" .format(shake_names[shakes_ordered],shake_prices[shakes_ordered]))
         num_shakes =  num_shakes-1
 
-
+# Print order out - including if order is del or pick up and names and price of each pizza - total cost including delivery charge
+def print_order(del_pick):
+    total_cost = sum(order_cost)
+    print ("Customer Details")
+    if del_pick == "pickup":
+        print(f"Customer Name: {customer_details['name']} /nCustomer Phone: {customer_details['phone']} /nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+    elif del_pick == "delivery":
+         print(f"Customer Name: {customer_details['name']} /nCustomer Phone: {customer_details['phone']} /nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+    print()
+    print("Order Details")
+    count = 0
+    for item in order_list:
+        print("Ordered: {} Cost ${:.2f}".format(item, order_cost[count]))
+        count = count+1
+    print()
+    print("total Order Cost")
+    print(f"${total_cost:.2f}")
 
 # Ability to cancel or proceed with order
 
@@ -184,10 +203,10 @@ def main():
     Returns: None
     '''
     welcome()
-    order_type()
+    del_pick = order_type()
     menu()
     order_shake()
-    
+    print_order(del_pick)
 
 
 main()
