@@ -1,5 +1,6 @@
 # Chat bot program
 
+import sys
 import random
 from random import randint
 
@@ -30,7 +31,7 @@ def not_blank(question):
         else:
             print("This cannot be blank")
 
-
+# Greetings and introduction to bot
 def welcome():
     '''
     Purpose: To generate a random name from the list and print out 
@@ -164,14 +165,18 @@ def order_shake():
 
 # Print order out - including if order is del or pick up and names and price of each pizza - total cost including delivery charge
 def print_order(del_pick):
-    total_cost = sum(order_cost)
-    print ("Customer Details")
-    if del_pick == "pickup":
-        print(f"Customer Name: {customer_details['name']} /nCustomer Phone: {customer_details['phone']} /nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
-    elif del_pick == "delivery":
-         print(f"Customer Name: {customer_details['name']} /nCustomer Phone: {customer_details['phone']} /nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
-    print("Order Details")
+    total_cost = sum(order_cost)
+    print ("Your Details")
+    if del_pick == "pickup":
+        print ("Your order is for Pickup")
+        print(f"Customer Name: {customer_details['name']} /nCustomer Phone: {customer_details['phone']}")
+    elif del_pick == "delivery":
+        print ("Your order is for elivery a $5.00 delivery charge applies")
+        total_cost = total_cost + 5
+        print(f"Customer Name: {customer_details['name']} /nCustomer Phone: {customer_details['phone']} /nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+    print()
+    print("Your Order Details")
     count = 0
     for item in order_list:
         print("Ordered: {} Cost ${:.2f}".format(item, order_cost[count]))
@@ -181,17 +186,59 @@ def print_order(del_pick):
     print(f"${total_cost:.2f}")
 
 # Ability to cancel or proceed with order
+def confirm_cancel():
+    print ("Please confirm your order?")
+    print ("To Confirm please enter 1")
+    print ("To Cancel please enter 2")
+    while True:
+        try:
+            confirm = int(input("Please enter a number "))
+            if confirm >= 1 and confirm <= 2:
+                if confirm == 1:
+                    print ("Order confirmed")
+                    break
+                elif confirm == 2:
+                    print ("Order cancelled")
+                    break
+            else:
+                print("The Number must be 1 or 2")
+        except ValueError:
+            print ("That is not a valid number")
+            print("Please enter 1 or 2")
 
 
 
 
 
 # Option for new order or to exit
-
-
-
-
-
+def new_exit():
+    print ("Do you want to start another order or exit?")
+    print ("To start another order please enter 1")
+    print ("To Exit please enter 2")
+    while True:
+        try:
+            confirm = int(input("Please enter a number "))
+            if confirm >= 1 and confirm <= 2:
+                if confirm == 1:
+                    print ("New order")
+                    order_list.clear()
+                    order_cost.clear()
+                    customer_details.clear()
+                    main()
+                    break
+                
+                elif confirm == 2:
+                    print ("Exit")
+                    order_list.clear()
+                    order_cost.clear()
+                    customer_details.clear()
+                    sys.exit()
+                    break
+            else:
+                print("The Number must be 1 or 2")
+        except ValueError:
+            print ("That is not a valid number")
+            print("Please enter 1 or 2")
 
 
 # Main function
@@ -207,6 +254,8 @@ def main():
     menu()
     order_shake()
     print_order(del_pick)
+    confirm_cancel()
+    new_exit()
 
 
 main()
