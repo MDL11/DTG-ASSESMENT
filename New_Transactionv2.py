@@ -21,8 +21,7 @@ while True:
                 print ("New order")
                 order_list.clear()
                 order_cost.clear()
-                customer_details.clear()
-                main()
+                customer_details.clear()           
                 break
             
             elif confirm == 2:
