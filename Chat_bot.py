@@ -6,11 +6,11 @@ from random import randint
 
 # List of random names
 names = ["Jeff", "Tim", "Sarah" , "Miguel", "Drake", "Hellen", "Eren", "Mona", "Louis", ]
-# List of Boba names
+# List of Flavors
 shake_names = ['Apple','Chocolate','Watermelon','Strawberry','Pear','Caramel','Orange','Mango',
                 'Rockmelon','Banana','Apricot','pineaple']
 
-# List of Boba prices
+# List of prices
 shake_prices = [8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 8.50, 13.50, 13.50, 13.50, 13.50, 13.50]
 
 # List to store ordered shakes
