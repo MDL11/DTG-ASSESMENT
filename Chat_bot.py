@@ -170,11 +170,11 @@ def print_order(del_pick):
     print ("Your Details")
     if del_pick == "pickup":
         print ("Your order is for Pickup")
-        print(f"Customer Name: {customer_details['name']} /nCustomer Phone: {customer_details['phone']}")
+        print(f"Customer Name: {customer_details['name']} Customer Phone: {customer_details['phone']}")
     elif del_pick == "delivery":
-        print ("Your order is for elivery a $5.00 delivery charge applies")
+        print ("Your order is for delivery a $5.00 delivery charge applies")
         total_cost = total_cost + 5
-        print(f"Customer Name: {customer_details['name']} /nCustomer Phone: {customer_details['phone']} /nCustomer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+        print(f"Customer Name: {customer_details['name']} Customer Phone: {customer_details['phone']} Customer Address: {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
     print("Your Order Details")
     count = 0
